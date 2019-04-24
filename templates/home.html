@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+      {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'img/gather.png' %}">
+
+    <title>Gather</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">GATHER</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/data">Data</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="post" action="{% url 'home' %}">
+            {% csrf_token %}
+            {% if auth.is_authenticated %}
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="req" value="logout">{{ auth }}</button>
+                {% else%}
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="req" value="login">Login</button>
+            {% endif %}
+
+        </form>
+      </div>
+    </nav>
+
+    <main role="main">
+    {% load static %}
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron" style="background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url({% static 'img/help.jpg' %});background-size: 100% 100%; background-blend-mode: normal; width: 100%;height: 100%">
+          <div class="container" >
+          <h1 class="display-3">Welcome to Gather </h1>
+          <p>This is one information platform to provide solution.</p>
+          <p><a class="btn btn-primary btn-lg" href="submit/" role="button">Submit information &raquo;</a></p>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Diseases</h2>
+              <img src="{% static 'img/disease.jpg' %}" width="340" height="200" class="img-responsive" style="opacity: 0.7">
+            <p>Provides information on various disease outbreaks and people affected by them </p>
+            <p><a class="btn btn-secondary" href="{% url 'data' %}" role="button">View details &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Emergency Relief</h2>
+              <img src="{% static 'img/emergency.jpg' %}" width="340" height="200" class="img-responsive" style="opacity: 0.7">
+            <p>Provides information on Emergency services and people who need it. </p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Drivers</h2>
+              <img src="{% static 'img/driver.jpg' %}" width="340" height="200" class="img-responsive" style="opacity: 0.7">
+            <p> Information to drivers on various routes and areas where they could face potential problems. </p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div>
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="container">
+      <p>&copy; Gather Company 2017-2018</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

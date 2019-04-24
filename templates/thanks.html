@@ -1,0 +1,37 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{%  url 'home' %}">
+
+    <title>Thank You</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="floating-labels.css" rel="stylesheet">
+  </head>
+
+  <body>
+  {% load static %}
+    <form class="" action="{% url 'home' %}" method="get">
+      <div class="text-center mb-4">
+          <a href="{% url 'home' %}">
+          <img class="mb-4" src="{% static 'img/gather.png' %}" alt="" width="200" height="200" >
+          </a>
+        <h1 class="h3 mb-3 font-weight-normal">Thank You</h1>
+        <p>Your data has been recorded. A step towards disease free world</p>
+      </div>
+
+        <center>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 20%;"> Back Home </button>
+        </center>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+    </form>
+  </body>
+</html>

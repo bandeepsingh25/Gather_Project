@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up </title>
+
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="https://colorlib.com/etc/regform/colorlib-regform-10/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link href="http://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Main css -->
+    <link rel="stylesheet" href="https://colorlib.com/etc/regform/colorlib-regform-10/css/style.css">
+</head>
+{% load static %}
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">GATHER</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/data">Data</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="post">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="main">
+
+        <h1>Sign up</h1>
+        <div class="container">
+            <div class="sign-up-content">
+                <center>
+                <a href="/"><img class="mb-4" src="{% static 'img/gather.png' %}" alt="" width="72" height="72" ></a>
+                    </center>
+                <form method="POST" class="signup-form">
+                    {% csrf_token %}
+                    <h2 class="form-title">What type of user are you ?</h2>
+                    <div class="form-radio">
+                        <input type="radio" name="member_level" value="doctor" id="newbie" checked="checked" />
+                        <label for="newbie">Doctor</label>
+
+                        <input type="radio" name="member_level" value="patient" id="average" />
+                        <label for="average">Patient</label>
+
+                        <input type="radio" name="member_level" value="ngo" id="master" />
+                        <label for="master">NGO</label>
+                    </div>
+
+                    <div class="form-textbox">
+                        <label for="name">First Name</label>
+                        <input type="text" name="first_name" id="name" required/>
+                    </div>
+                    <div class="form-textbox">
+                        <label for="name">Last Name</label>
+                        <input type="text" name="last_name" id="name"  required/>
+                    </div>
+
+                    <div class="form-textbox">
+                        <label for="name">Username</label>
+                        <input type="text" name="username" id="name"  required/>
+                    </div>
+
+                    <div class="form-textbox">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required/>
+                    </div>
+
+                    <div class="form-textbox">
+                        <label for="pass">Password</label>
+                        <input type="password" name="password" id="pass" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                    </div>
+
+                    <div class="form-textbox">
+                        <input type="submit" name="submit" id="submit" class="submit" value="Create account" />
+                    </div>
+                </form>
+
+                <p class="loginhere">
+                    Already have an account ?<a href="{% url 'login' %}" class="loginhere-link"> Log in</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    {% if error %}
+    alert('You are already Signed up')
+    {% endif %}
+
+</script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
