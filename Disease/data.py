@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def data_country():
-    countries = pd.read_csv('/Users/Bandeep/PycharmProjects/Gather/disease/countries/country.csv')
+    countries = pd.read_csv('countries/country.csv')
 
     countries['value'] = countries['value'].apply(lambda x: (x,x))
 
@@ -13,7 +13,7 @@ def data_country():
 
 
 def get_country(abbreviation):
-    countries = pd.read_csv( '/Users/Bandeep/PycharmProjects/Gather/disease/countries/country.csv' )
+    countries = pd.read_csv( 'countries/country.csv' )
 
     abbre = countries['id'].values
 
